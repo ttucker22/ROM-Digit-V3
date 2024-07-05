@@ -7,7 +7,8 @@
     <style>
         table {
             border-collapse: collapse;
-            width: 75%;
+            width: 100%;
+            table-layout: fixed;
         }
         th, td {
             border: 1px solid black;
@@ -15,17 +16,13 @@
             text-align: center;
         }
         th.joints, td.joints {
-            width: 10%;
-        }
-        th.empty, td.empty {
-            width: 5%;
-        }
-        th.flexion, th.extension, th.ankylosis, th.imp, td.flexion, td.extension, td.ankylosis, td.imp {
             width: 12%;
         }
-        th, td {
-            max-width: 75px; /* Explicitly set a max-width */
-            white-space: nowrap; /* Prevent text from wrapping */
+        th.empty, td.empty {
+            width: 6%;
+        }
+        th.flexion, th.extension, th.ankylosis, th.imp, td.flexion, td.extension, td.ankylosis, td.imp {
+            width: 14%;
         }
         input {
             width: 40px;
