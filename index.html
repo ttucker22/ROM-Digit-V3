@@ -55,9 +55,6 @@
             width: 40px;
             text-align: center;
         }
-        .triangle {
-            color: green;
-        }
         .no-bottom-border {
             border-bottom: none;
         }
@@ -85,7 +82,7 @@
         <div class="card-header">Thumb ROM Impairment Calculator</div>
         <table>
             <tr>
-                <th class="blue-header joints">Joints</th>
+                <th class="blue-header joints">Joint</th>
                 <th class="blue-cell empty"></th>
                 <th class="blue-header flexion">Flexion</th>
                 <th class="blue-header extension">Extension</th>
@@ -95,9 +92,9 @@
             <tr>
                 <th rowspan="2" class="joints">IP</th>
                 <td class="empty">Angle°</td>
-                <td class="flexion"><span class="triangle">▼</span> <input type="number" id="ip-flexion"></td>
-                <td class="extension"><span class="triangle">▼</span> <input type="number" id="ip-extension"></td>
-                <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="ip-ankylosis"></td>
+                <td class="flexion"><input type="number" id="ip-flexion"></td>
+                <td class="extension"><input type="number" id="ip-extension"></td>
+                <td class="ankylosis"><input type="number" id="ip-ankylosis"></td>
                 <td class="imp" rowspan="2" id="ip-imp">0</td>
             </tr>
             <tr>
@@ -109,9 +106,9 @@
             <tr>
                 <th rowspan="2" class="joints">MP</th>
                 <td class="empty">Angle°</td>
-                <td class="flexion"><span class="triangle">▼</span> <input type="number" id="mp-flexion"></td>
-                <td class="extension"><span class="triangle">▼</span> <input type="number" id="mp-extension"></td>
-                <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="mp-ankylosis"></td>
+                <td class="flexion"><input type="number" id="mp-flexion"></td>
+                <td class="extension"><input type="number" id="mp-extension"></td>
+                <td class="ankylosis"><input type="number" id="mp-ankylosis"></td>
                 <td class="imp" rowspan="2" id="mp-imp">0</td>
             </tr>
             <tr>
@@ -132,8 +129,8 @@
                 <th rowspan="6" class="joints">CMC</th>
                 <td rowspan="2" class="no-bottom-border vertical-center empty">Radial Abduction</td>
                 <td class="flexion">Angle°</td>
-                <td class="extension"><span class="triangle">▼</span> <input type="number" id="radial-abduction"></td>
-                <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="radial-abduction-ankylosis"></td>
+                <td class="extension"><input type="number" id="radial-abduction"></td>
+                <td class="ankylosis"><input type="number" id="radial-abduction-ankylosis"></td>
                 <td class="imp" rowspan="2" id="radial-abduction-imp">0</td>
             </tr>
             <tr>
@@ -144,8 +141,8 @@
             <tr>
                 <td rowspan="2" class="empty">Adduction</td>
                 <td class="flexion">CM</td>
-                <td class="extension"><span class="triangle">▼</span> <input type="number" id="cmc-adduction" step="0.1"></td>
-                <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="cmc-adduction-ankylosis" step="0.1"></td>
+                <td class="extension"><input type="number" id="cmc-adduction" step="0.1"></td>
+                <td class="ankylosis"><input type="number" id="cmc-adduction-ankylosis" step="0.1"></td>
                 <td class="imp" rowspan="2" id="cmc-adduction-imp">0</td>
             </tr>
             <tr>
@@ -156,8 +153,8 @@
             <tr>
                 <td rowspan="2" class="empty">Opposition</td>
                 <td class="flexion">CM</td>
-                <td class="extension"><span class="triangle">▼</span> <input type="number" id="opposition" step="0.1"></td>
-                <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="opposition-ankylosis" step="0.1"></td>
+                <td class="extension"><input type="number" id="opposition" step="0.1"></td>
+                <td class="ankylosis"><input type="number" id="opposition-ankylosis" step="0.1"></td>
                 <td class="imp" rowspan="2" id="opposition-imp">0</td>
             </tr>
             <tr>
