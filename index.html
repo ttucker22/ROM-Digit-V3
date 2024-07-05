@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thumb ROM Impairment Calculator</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            max-width: 800px;
+            width: 100%;
+        }
+        .card-header {
+            font-size: 1.5em;
+            margin-bottom: 16px;
+            text-align: center;
+            font-weight: bold;
+        }
         table {
             border-collapse: collapse;
             width: 100%;
@@ -54,90 +77,93 @@
     </style>
 </head>
 <body>
-    <table>
-        <tr>
-            <th class="blue-header joints">Joints</th>
-            <th class="blue-cell empty"></th>
-            <th class="blue-header flexion">Flexion</th>
-            <th class="blue-header extension">Extension</th>
-            <th class="blue-header ankylosis">Ankylosis</th>
-            <th class="blue-header imp">Imp%</th>
-        </tr>
-        <tr>
-            <th rowspan="2" class="joints">IP</th>
-            <td class="empty">Angle°</td>
-            <td class="flexion"><span class="triangle">▼</span> <input type="number" id="ip-flexion"></td>
-            <td class="extension"><span class="triangle">▼</span> <input type="number" id="ip-extension"></td>
-            <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="ip-ankylosis"></td>
-            <td class="imp" rowspan="2" id="ip-imp">0</td>
-        </tr>
-        <tr>
-            <td class="empty">Imp%</td>
-            <td class="flexion" id="ip-flexion-imp">0</td>
-            <td class="extension" id="ip-extension-imp">0</td>
-            <td class="ankylosis" id="ip-ankylosis-imp">0</td>
-        </tr>
-        <tr>
-            <th rowspan="2" class="joints">MP</th>
-            <td class="empty">Angle°</td>
-            <td class="flexion"><span class="triangle">▼</span> <input type="number" id="mp-flexion"></td>
-            <td class="extension"><span class="triangle">▼</span> <input type="number" id="mp-extension"></td>
-            <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="mp-ankylosis"></td>
-            <td class="imp" rowspan="2" id="mp-imp">0</td>
-        </tr>
-        <tr>
-            <td class="empty">Imp%</td>
-            <td class="flexion" id="mp-flexion-imp">0</td>
-            <td class="extension" id="mp-extension-imp">0</td>
-            <td class="ankylosis" id="mp-ankylosis-imp">0</td>
-        </tr>
-        <tr>
-            <th class="joints"></th>
-            <th class="grey-cell empty"></th>
-            <th class="grey-cell flexion"></th>
-            <th class="blue-header extension">Motion</th>
-            <th class="blue-header ankylosis">Ankylosis</th>
-            <th class="blue-header imp">Imp%</th>
-        </tr>
-        <tr>
-            <th rowspan="6" class="joints">CMC</th>
-            <td rowspan="2" class="no-bottom-border vertical-center empty">Radial Abduction</td>
-            <td class="flexion">Angle°</td>
-            <td class="extension"><span class="triangle">▼</span> <input type="number" id="radial-abduction"></td>
-            <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="radial-abduction-ankylosis"></td>
-            <td class="imp" rowspan="2" id="radial-abduction-imp">0</td>
-        </tr>
-        <tr>
-            <td class="empty">Imp%</td>
-            <td class="flexion" id="radial-abduction-motion-imp">0</td>
-            <td class="extension" id="radial-abduction-ankylosis-imp">0</td>
-        </tr>
-        <tr>
-            <td rowspan="2" class="empty">Adduction</td>
-            <td class="flexion">CM</td>
-            <td class="extension"><span class="triangle">▼</span> <input type="number" id="cmc-adduction" step="0.1"></td>
-            <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="cmc-adduction-ankylosis" step="0.1"></td>
-            <td class="imp" rowspan="2" id="cmc-adduction-imp">0</td>
-        </tr>
-        <tr>
-            <td class="empty">Imp%</td>
-            <td class="flexion" id="cmc-adduction-motion-imp">0</td>
-            <td class="extension" id="cmc-adduction-ankylosis-imp">0</td>
-        </tr>
-        <tr>
-            <td rowspan="2" class="empty">Opposition</td>
-            <td class="flexion">CM</td>
-            <td class="extension"><span class="triangle">▼</span> <input type="number" id="opposition" step="0.1"></td>
-            <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="opposition-ankylosis" step="0.1"></td>
-            <td class="imp" rowspan="2" id="opposition-imp">0</td>
-        </tr>
-        <tr>
-            <td class="empty">Imp%</td>
-            <td class="flexion" id="opposition-motion-imp">0</td>
-            <td class="extension" id="opposition-ankylosis-imp">0</td>
-        </tr>
-    </table>
-    <div id="total-imp">ADD: 0 DT = 0 HD</div>
+    <div class="card">
+        <div class="card-header">Thumb ROM Impairment Calculator</div>
+        <table>
+            <tr>
+                <th class="blue-header joints">Joints</th>
+                <th class="blue-cell empty"></th>
+                <th class="blue-header flexion">Flexion</th>
+                <th class="blue-header extension">Extension</th>
+                <th class="blue-header ankylosis">Ankylosis</th>
+                <th class="blue-header imp">Imp%</th>
+            </tr>
+            <tr>
+                <th rowspan="2" class="joints">IP</th>
+                <td class="empty">Angle°</td>
+                <td class="flexion"><span class="triangle">▼</span> <input type="number" id="ip-flexion"></td>
+                <td class="extension"><span class="triangle">▼</span> <input type="number" id="ip-extension"></td>
+                <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="ip-ankylosis"></td>
+                <td class="imp" rowspan="2" id="ip-imp">0</td>
+            </tr>
+            <tr>
+                <td class="empty">Imp%</td>
+                <td class="flexion" id="ip-flexion-imp">0</td>
+                <td class="extension" id="ip-extension-imp">0</td>
+                <td class="ankylosis" id="ip-ankylosis-imp">0</td>
+            </tr>
+            <tr>
+                <th rowspan="2" class="joints">MP</th>
+                <td class="empty">Angle°</td>
+                <td class="flexion"><span class="triangle">▼</span> <input type="number" id="mp-flexion"></td>
+                <td class="extension"><span class="triangle">▼</span> <input type="number" id="mp-extension"></td>
+                <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="mp-ankylosis"></td>
+                <td class="imp" rowspan="2" id="mp-imp">0</td>
+            </tr>
+            <tr>
+                <td class="empty">Imp%</td>
+                <td class="flexion" id="mp-flexion-imp">0</td>
+                <td class="extension" id="mp-extension-imp">0</td>
+                <td class="ankylosis" id="mp-ankylosis-imp">0</td>
+            </tr>
+            <tr>
+                <th class="joints"></th>
+                <th class="grey-cell empty"></th>
+                <th class="grey-cell flexion"></th>
+                <th class="blue-header extension">Motion</th>
+                <th class="blue-header ankylosis">Ankylosis</th>
+                <th class="blue-header imp">Imp%</th>
+            </tr>
+            <tr>
+                <th rowspan="6" class="joints">CMC</th>
+                <td rowspan="2" class="no-bottom-border vertical-center empty">Radial Abduction</td>
+                <td class="flexion">Angle°</td>
+                <td class="extension"><span class="triangle">▼</span> <input type="number" id="radial-abduction"></td>
+                <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="radial-abduction-ankylosis"></td>
+                <td class="imp" rowspan="2" id="radial-abduction-imp">0</td>
+            </tr>
+            <tr>
+                <td class="empty">Imp%</td>
+                <td class="flexion" id="radial-abduction-motion-imp">0</td>
+                <td class="extension" id="radial-abduction-ankylosis-imp">0</td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="empty">Adduction</td>
+                <td class="flexion">CM</td>
+                <td class="extension"><span class="triangle">▼</span> <input type="number" id="cmc-adduction" step="0.1"></td>
+                <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="cmc-adduction-ankylosis" step="0.1"></td>
+                <td class="imp" rowspan="2" id="cmc-adduction-imp">0</td>
+            </tr>
+            <tr>
+                <td class="empty">Imp%</td>
+                <td class="flexion" id="cmc-adduction-motion-imp">0</td>
+                <td class="extension" id="cmc-adduction-ankylosis-imp">0</td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="empty">Opposition</td>
+                <td class="flexion">CM</td>
+                <td class="extension"><span class="triangle">▼</span> <input type="number" id="opposition" step="0.1"></td>
+                <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="opposition-ankylosis" step="0.1"></td>
+                <td class="imp" rowspan="2" id="opposition-imp">0</td>
+            </tr>
+            <tr>
+                <td class="empty">Imp%</td>
+                <td class="flexion" id="opposition-motion-imp">0</td>
+                <td class="extension" id="opposition-ankylosis-imp">0</td>
+            </tr>
+        </table>
+        <div id="total-imp">ADD: 0 DT = 0 HD</div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
