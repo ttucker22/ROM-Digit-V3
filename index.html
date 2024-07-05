@@ -13,8 +13,15 @@
             border: 1px solid black;
             padding: 4px;
             text-align: center;
-            max-width: 100px; /* Adjust the max-width to reduce unnecessary whitespace */
-            white-space: nowrap; /* Prevent text from wrapping */
+        }
+        th.joints, td.joints {
+            width: 10%;
+        }
+        th.empty, td.empty {
+            width: 5%;
+        }
+        th.flexion, th.extension, th.ankylosis, th.imp, td.flexion, td.extension, td.ankylosis, td.imp {
+            width: 15%;
         }
         input {
             width: 40px;
@@ -48,85 +55,85 @@
 <body>
     <table>
         <tr>
-            <th class="blue-header">Joints</th>
-            <th class="blue-cell"></th>
-            <th class="blue-header">Flexion</th>
-            <th class="blue-header">Extension</th>
-            <th class="blue-header">Ankylosis</th>
-            <th class="blue-header">Imp%</th>
+            <th class="blue-header joints">Joints</th>
+            <th class="blue-cell empty"></th>
+            <th class="blue-header flexion">Flexion</th>
+            <th class="blue-header extension">Extension</th>
+            <th class="blue-header ankylosis">Ankylosis</th>
+            <th class="blue-header imp">Imp%</th>
         </tr>
         <tr>
-            <th rowspan="2">IP</th>
-            <td>Angle°</td>
-            <td><span class="triangle">▼</span> <input type="number" id="ip-flexion"></td>
-            <td><span class="triangle">▼</span> <input type="number" id="ip-extension"></td>
-            <td><span class="triangle">▼</span> <input type="number" id="ip-ankylosis"></td>
-            <td rowspan="2" id="ip-imp">0</td>
+            <th rowspan="2" class="joints">IP</th>
+            <td class="empty">Angle°</td>
+            <td class="flexion"><span class="triangle">▼</span> <input type="number" id="ip-flexion"></td>
+            <td class="extension"><span class="triangle">▼</span> <input type="number" id="ip-extension"></td>
+            <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="ip-ankylosis"></td>
+            <td class="imp" rowspan="2" id="ip-imp">0</td>
         </tr>
         <tr>
-            <td>Imp%</td>
-            <td id="ip-flexion-imp">0</td>
-            <td id="ip-extension-imp">0</td>
-            <td id="ip-ankylosis-imp">0</td>
+            <td class="empty">Imp%</td>
+            <td class="flexion" id="ip-flexion-imp">0</td>
+            <td class="extension" id="ip-extension-imp">0</td>
+            <td class="ankylosis" id="ip-ankylosis-imp">0</td>
         </tr>
         <tr>
-            <th rowspan="2">MP</th>
-            <td>Angle°</td>
-            <td><span class="triangle">▼</span> <input type="number" id="mp-flexion"></td>
-            <td><span class="triangle">▼</span> <input type="number" id="mp-extension"></td>
-            <td><span class="triangle">▼</span> <input type="number" id="mp-ankylosis"></td>
-            <td rowspan="2" id="mp-imp">0</td>
+            <th rowspan="2" class="joints">MP</th>
+            <td class="empty">Angle°</td>
+            <td class="flexion"><span class="triangle">▼</span> <input type="number" id="mp-flexion"></td>
+            <td class="extension"><span class="triangle">▼</span> <input type="number" id="mp-extension"></td>
+            <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="mp-ankylosis"></td>
+            <td class="imp" rowspan="2" id="mp-imp">0</td>
         </tr>
         <tr>
-            <td>Imp%</td>
-            <td id="mp-flexion-imp">0</td>
-            <td id="mp-extension-imp">0</td>
-            <td id="mp-ankylosis-imp">0</td>
+            <td class="empty">Imp%</td>
+            <td class="flexion" id="mp-flexion-imp">0</td>
+            <td class="extension" id="mp-extension-imp">0</td>
+            <td class="ankylosis" id="mp-ankylosis-imp">0</td>
         </tr>
         <tr>
-            <th></th>
-            <th class="grey-cell"></th>
-            <th class="grey-cell"></th>
-            <th class="blue-header">Motion</th>
-            <th class="blue-header">Ankylosis</th>
-            <th class="blue-header">Imp%</th>
+            <th class="joints"></th>
+            <th class="grey-cell empty"></th>
+            <th class="grey-cell flexion"></th>
+            <th class="blue-header extension">Motion</th>
+            <th class="blue-header ankylosis">Ankylosis</th>
+            <th class="blue-header imp">Imp%</th>
         </tr>
         <tr>
-            <th rowspan="6">CMC</th>
-            <td rowspan="2" class="no-bottom-border vertical-center">Radial Abduction</td>
-            <td>Angle°</td>
-            <td><span class="triangle">▼</span> <input type="number" id="radial-abduction"></td>
-            <td><span class="triangle">▼</span> <input type="number" id="radial-abduction-ankylosis"></td>
-            <td rowspan="2" id="radial-abduction-imp">0</td>
+            <th rowspan="6" class="joints">CMC</th>
+            <td rowspan="2" class="no-bottom-border vertical-center empty">Radial Abduction</td>
+            <td class="flexion">Angle°</td>
+            <td class="extension"><span class="triangle">▼</span> <input type="number" id="radial-abduction"></td>
+            <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="radial-abduction-ankylosis"></td>
+            <td class="imp" rowspan="2" id="radial-abduction-imp">0</td>
         </tr>
         <tr>
-            <td>Imp%</td>
-            <td id="radial-abduction-motion-imp">0</td>
-            <td id="radial-abduction-ankylosis-imp">0</td>
+            <td class="empty">Imp%</td>
+            <td class="flexion" id="radial-abduction-motion-imp">0</td>
+            <td class="extension" id="radial-abduction-ankylosis-imp">0</td>
         </tr>
         <tr>
-            <td rowspan="2">Adduction</td>
-            <td>CM</td>
-            <td><span class="triangle">▼</span> <input type="number" id="cmc-adduction" step="0.1"></td>
-            <td><span class="triangle">▼</span> <input type="number" id="cmc-adduction-ankylosis" step="0.1"></td>
-            <td rowspan="2" id="cmc-adduction-imp">0</td>
+            <td rowspan="2" class="empty">Adduction</td>
+            <td class="flexion">CM</td>
+            <td class="extension"><span class="triangle">▼</span> <input type="number" id="cmc-adduction" step="0.1"></td>
+            <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="cmc-adduction-ankylosis" step="0.1"></td>
+            <td class="imp" rowspan="2" id="cmc-adduction-imp">0</td>
         </tr>
         <tr>
-            <td>Imp%</td>
-            <td id="cmc-adduction-motion-imp">0</td>
-            <td id="cmc-adduction-ankylosis-imp">0</td>
+            <td class="empty">Imp%</td>
+            <td class="flexion" id="cmc-adduction-motion-imp">0</td>
+            <td class="extension" id="cmc-adduction-ankylosis-imp">0</td>
         </tr>
         <tr>
-            <td rowspan="2">Opposition</td>
-            <td>CM</td>
-            <td><span class="triangle">▼</span> <input type="number" id="opposition" step="0.1"></td>
-            <td><span class="triangle">▼</span> <input type="number" id="opposition-ankylosis" step="0.1"></td>
-            <td rowspan="2" id="opposition-imp">0</td>
+            <td rowspan="2" class="empty">Opposition</td>
+            <td class="flexion">CM</td>
+            <td class="extension"><span class="triangle">▼</span> <input type="number" id="opposition" step="0.1"></td>
+            <td class="ankylosis"><span class="triangle">▼</span> <input type="number" id="opposition-ankylosis" step="0.1"></td>
+            <td class="imp" rowspan="2" id="opposition-imp">0</td>
         </tr>
         <tr>
-            <td>Imp%</td>
-            <td id="opposition-motion-imp">0</td>
-            <td id="opposition-ankylosis-imp">0</td>
+            <td class="empty">Imp%</td>
+            <td class="flexion" id="opposition-motion-imp">0</td>
+            <td class="extension" id="opposition-ankylosis-imp">0</td>
         </tr>
     </table>
     <div id="total-imp">ADD: 0 DT = 0 HD</div>
