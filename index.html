@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thumb ROM Impairment Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .highlight-cell {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .calculate-button {
+            display: block;
+            width: 100px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .calculate-button:hover {
+            background-color: #0056b3;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Thumb ROM Impairment Calculator</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Joint</th>
+                <th colspan="2">Flexion</th>
+                <th colspan="2">Extension</th>
+                <th colspan="2">Ankylosis</th>
+                <th>Imp%</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>IP</td>
+                <td>Angle°</td>
+                <td><input type="number" id="ip-flexion" placeholder="Angle°"></td>
+                <td>Angle°</td>
+                <td><input type="number" id="ip-extension" placeholder="Angle°"></td>
+                <td>Angle°</td>
+                <td><input type="number" id="ip-ankylosis" placeholder="Angle°"></td>
+                <td id="ip-imp">0</td>
+            </tr>
+            <tr>
+                <td>MP</td>
+                <td>Angle°</td>
+                <td><input type="number" id="mp-flexion" placeholder="Angle°"></td>
+                <td>Angle°</td>
+                <td><input type="number" id="mp-extension" placeholder="Angle°"></td>
+                <td>Angle°</td>
+                <td><input type="number" id="mp-ankylosis" placeholder="Angle°"></td>
+                <td id="mp-imp">0</td>
+            </tr>
+            <tr>
+                <td rowspan="3">CMC</td>
+                <td class="highlight-cell">Radial Adduction</td>
+                <td><input type="number" id="radial-abduction" placeholder="Angle°"></td>
+                <td class="highlight-cell">Motion</td>
+                <td id="radial-abduction-motion-imp">0</td>
+                <td class="highlight-cell">Ankylosis</td>
+                <td><input type="number" id="radial-abduction-ankylosis" placeholder="Angle°"></td>
+                <td id="radial-abduction-imp">0</td>
+            </tr>
+            <tr>
+                <td class="highlight-cell">Adduction</td>
+                <td><input type="number" id="cmc-adduction" placeholder="CM"></td>
+                <td class="highlight-cell">Motion</td>
+                <td id="cmc-adduction-motion-imp">0</td>
+                <td class="highlight-cell">Ankylosis</td>
+                <td><input type="number" id="cmc-adduction-ankylosis" placeholder="CM"></td>
+                <td id="cmc-adduction-imp">0</td>
+            </tr>
+            <tr>
+                <td class="highlight-cell">Opposition</td>
+                <td><input type="number" id="opposition" placeholder="CM"></td>
+                <td class="highlight-cell">Motion</td>
+                <td id="opposition-motion-imp">0</td>
+                <td class="highlight-cell">Ankylosis</td>
+                <td><input type="number" id="opposition-ankylosis" placeholder="CM"></td>
+                <td id="opposition-imp">0</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="center-text">
+        <span>ADD: 0 DT = 0 HD</span>
+    </div>
+    <button class="calculate-button" id="calculate">Calculate</button>
+    <p class="result">Total Digit Impairment %: <span id="totalDigitImpairment">0</span></p>
+    <script src="thumb.js"></script>
+</body>
+</html>
