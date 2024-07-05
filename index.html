@@ -15,13 +15,17 @@
             text-align: center;
         }
         th.joints, td.joints {
-            width: 8%;
+            width: 10%;
         }
         th.empty, td.empty {
             width: 5%;
         }
         th.flexion, th.extension, th.ankylosis, th.imp, td.flexion, td.extension, td.ankylosis, td.imp {
             width: 12%;
+        }
+        th, td {
+            max-width: 100px; /* Explicitly set a max-width */
+            white-space: nowrap; /* Prevent text from wrapping */
         }
         input {
             width: 40px;
